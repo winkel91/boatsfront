@@ -7,7 +7,7 @@ document.getElementById("createBoatForm").addEventListener("submit", function(ev
       lengthClass: form.lengthClass.value,
     };
   
-    fetch("/boats", {
+    fetch("http://localhost:8085/boats", {
       method: "POST",
       body: JSON.stringify(boatData),
       headers: {
@@ -25,7 +25,7 @@ document.getElementById("createBoatForm").addEventListener("submit", function(ev
       console.error("Error creating boat:", error);
     });
   });
-fetch("/boats")
+fetch("http://localhost:8085/boats")
     .then(response => response.json())
     .then(data => {
       const boatList = document.getElementById("boatList");
