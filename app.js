@@ -17,11 +17,11 @@ document.getElementById("createBoatForm").addEventListener("submit", function(ev
     })
     .then(response => response.json())
     .then(data => {
-      // Handle the response from the server (e.g., display a success message)
+
       console.log("Boat created successfully:", data);
     })
     .catch(error => {
-      // Handle any error that occurred during the request
+
       console.error("Error creating boat:", error);
     });
   });

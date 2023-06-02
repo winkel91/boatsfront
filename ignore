@@ -1,0 +1,56 @@
+document.getElementById("createRaceForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const boatId = boat.id; 
+  const dropdown = document.getElementById("boatDropdown"); 
+const boatId = dropdown.value;
+  const form = event.target;
+  const raceData = {
+    date: form.date.value,
+    placement: form.placement.value,
+  };
+
+  fetch("http://localhost:8085/races", {
+    method: "POST",
+    body: JSON.stringify(raceData),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    
+  })
+  .then(response => response.json())
+  .then(data => {
+
+    console.log("Race created successfully:", data);
+  })
+  .catch(error => {
+
+    console.error("Error creating race:", error);
+  });
+});
+fetch("http://localhost:8085/races")
+  .then(response => response.json())
+  .then(data => {
+    const raceList = document.getElementById("raceList");
+    
+    data.forEach(race => {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${race.date} - ${race.placement}`;
+      raceList.appendChild(listItem);
+    });
+  })
+  .catch(error => {
+    console.error("Error fetching races:", error);
+  });
+  const url = `/boats/${boatId}/giftPoints?placement=${placement}`;
+  fetch(url, {
+    method: "POST",
+  })
+    .then(response => response.json())
+    .then(data => {
+
+      console.log("Points gifted successfully:", data);
+    })
+    .catch(error => {
+
+      console.error("Error gifting points:", error);
+    });

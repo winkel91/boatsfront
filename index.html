@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Boats</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/index2.html">To Races</a></li>
+    </ul>
+  </div>
+</nav>
 <form id="createBoatForm">
     <label for="name">Boat Name:</label>
     <input type="text" id="name" name="name" required>
@@ -21,11 +31,12 @@
       <option value="small">Small</option>
       <option value="medium">Medium</option>
       <option value="large">Large</option>
-      <!-- Add more options based on your length class data -->
+
     </select>
-    <ul id="boatList"></ul>
+    
 
 
     
     <button type="submit">Create Boat</button>
+    <ul id="boatList"></ul>
   </form>
